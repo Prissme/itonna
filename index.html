@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itonna | Boosting Null's Brawl Professionnel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Montserrat:wght@400;700;900&display=swap');
+
+        :root {
+            --brawl-yellow: #FFCE00;
+            --brawl-blue: #00AEEF;
+            --brawl-purple: #7029FF;
+            --brawl-orange: #FF8A00;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        .font-brawl {
+            font-family: 'Bangers', cursive;
+            letter-spacing: 1px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(to bottom, var(--brawl-yellow), #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-brawl {
+            background: linear-gradient(to bottom, #FFCE00, #FF8A00);
+            border-bottom: 4px solid #B26500;
+            transition: all 0.1s active;
+        }
+
+        .btn-brawl:active {
+            border-bottom-width: 0;
+            transform: translateY(4px);
+        }
+
+        .card-glass {
+            background: var(--card-bg);
+            border: 2px solid #333;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-glass:hover {
+            transform: translateY(-5px);
+            border-color: var(--brawl-blue);
+        }
+
+        .badge-rank {
+            background: rgba(112, 41, 255, 0.2);
+            border: 1px solid var(--brawl-purple);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center text-black font-black text-xl">I</div>
+                <span class="font-brawl text-2xl tracking-wider">ITONNA</span>
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-sm uppercase">
+                <a href="#services" class="hover:text-yellow-400 transition">Services</a>
+                <a href="#tarifs" class="hover:text-yellow-400 transition">Tarifs</a>
+                <a href="#avis" class="hover:text-yellow-400 transition">Avis</a>
+                <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+            </div>
+            <a href="#contact" class="btn-brawl px-6 py-2 rounded-full text-black font-black uppercase text-sm">Boost Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 px-4 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-20 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-b from-purple-600/20 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="font-brawl text-6xl md:text-8xl mb-6 leading-tight">
+                DOMINEZ <br> <span class="text-gradient">NULL'S BRAWL</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                Le service de boosting le plus rapide et sécurisé pour atteindre les sommets du classement mondial sur Null's.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#tarifs" class="btn-brawl px-10 py-4 rounded-xl text-black font-black text-xl flex items-center gap-3">
+                    <i class="fas fa-bolt"></i> VOIR LES OFFRES
+                </a>
+                <div class="flex items-center gap-3 px-6 py-4 bg-white/5 rounded-xl border border-white/10">
+                    <span class="text-green-400 flex gap-1">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </span>
+                    <span class="font-bold">4.9/5 sur Discord</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features -->
+    <section id="services" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="card-glass p-8 text-center">
+                <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-shield-alt text-3xl text-blue-400"></i>
+                </div>
+                <h3 class="font-brawl text-2xl mb-4">100% Sécurisé</h3>
+                <p class="text-gray-400">Protection totale de vos données. Pas de partage d'informations sensibles avec des tiers.</p>
+            </div>
+            <div class="card-glass p-8 text-center">
+                <div class="w-16 h-16 bg-yellow-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-tachometer-alt text-3xl text-yellow-400"></i>
+                </div>
+                <h3 class="font-brawl text-2xl mb-4">Vitesse Éclair</h3>
+                <p class="text-gray-400">Début du boost en moins de 30 minutes après commande. Progression constante.</p>
+            </div>
+            <div class="card-glass p-8 text-center">
+                <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-trophy text-3xl text-purple-400"></i>
+                </div>
+                <h3 class="font-brawl text-2xl mb-4">Joueurs Pro</h3>
+                <p class="text-gray-400">Uniquement des boosters ayant atteint le top 100 mondial pour garantir vos trophées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="tarifs" class="py-20 px-4 bg-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-brawl text-5xl mb-4">NOS <span class="text-gradient">FORMULES</span></h2>
+                <p class="text-gray-400">Choisissez le pack qui correspond à vos objectifs</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Pack Bronze -->
+                <div class="card-glass p-8 relative flex flex-col">
+                    <div class="mb-6">
+                        <span class="badge-rank">Pack Débutant</span>
+                        <h3 class="font-brawl text-3xl mt-4">PUSH TROPHÉES</h3>
+                    </div>
+                    <div class="text-4xl font-black mb-6">9.99€ <span class="text-sm font-normal text-gray-400">/ 500 trophées</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-300 flex-grow">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Rank 25 Garanti</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Livraison en 24h</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Support Discord</li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl border border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition uppercase">Commander</button>
+                </div>
+
+                <!-- Pack Or -->
+                <div class="card-glass p-8 relative flex flex-col border-yellow-400/50 scale-105 bg-gradient-to-b from-zinc-900 to-yellow-900/10">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-4 py-1 rounded-full font-bold text-xs uppercase tracking-widest">Le Plus Populaire</div>
+                    <div class="mb-6">
+                        <span class="badge-rank">Expert</span>
+                        <h3 class="font-brawl text-3xl mt-4">RANK 30 POWER</h3>
+                    </div>
+                    <div class="text-4xl font-black mb-6">24.99€ <span class="text-sm font-normal text-gray-400">/ brawler</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-300 flex-grow">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Jusqu'à 1000 trophées</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Stream privé du boost</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Priorité maximale</li>
+                    </ul>
+                    <button class="w-full btn-brawl py-4 rounded-xl text-black font-black uppercase">Sélectionner</button>
+                </div>
+
+                <!-- Pack Platine -->
+                <div class="card-glass p-8 relative flex flex-col">
+                    <div class="mb-6">
+                        <span class="badge-rank">Légendaire</span>
+                        <h3 class="font-brawl text-3xl mt-4">RANK 35 GOD</h3>
+                    </div>
+                    <div class="text-4xl font-black mb-6">49.99€ <span class="text-sm font-normal text-gray-400">/ brawler</span></div>
+                    <ul class="space-y-4 mb-10 text-gray-300 flex-grow">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Rang Maître mondial</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Coaching vocal inclus</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i> Badge exclusif Itonna</li>
+                    </ul>
+                    <button class="w-full py-4 rounded-xl border border-yellow-400 text-yellow-400 font-bold hover:bg-yellow-400 hover:text-black transition uppercase">Commander</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="avis" class="py-20 px-4 max-w-5xl mx-auto">
+        <h2 class="font-brawl text-4xl text-center mb-12">TEMOIGNAGES <span class="text-blue-400">CLIENTS</span></h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-zinc-900 p-6 rounded-2xl border-l-4 border-yellow-400">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center font-bold">L</div>
+                    <div>
+                        <div class="font-bold">Léon_Pro92</div>
+                        <div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p class="text-gray-400 italic">"Boost passé de 500 à 1000 trophées en une soirée ! Super pro et sympa sur Discord."</p>
+            </div>
+            <div class="bg-zinc-900 p-6 rounded-2xl border-l-4 border-blue-400">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center font-bold">M</div>
+                    <div>
+                        <div class="font-bold">Maxime_BS</div>
+                        <div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+                <p class="text-gray-400 italic">"J'avais peur pour mon compte mais ils sont super honnêtes. Mon Shelly est enfin Rank 35 !"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4 max-w-3xl mx-auto text-center">
+        <div class="card-glass p-10 bg-gradient-to-r from-blue-900/20 to-purple-900/20">
+            <h2 class="font-brawl text-4xl mb-6">PRÊT À <span class="text-gradient">COMMANDER ?</span></h2>
+            <p class="mb-8 text-gray-300">Rejoignez notre serveur Discord pour discuter directement avec nos boosters.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-[#5865F2] hover:bg-[#4752C4] px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition">
+                    <i class="fab fa-discord text-2xl"></i> REJOINDRE DISCORD
+                </a>
+                <a href="mailto:contact@itonna.example" class="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 transition">
+                    <i class="fas fa-envelope text-2xl"></i> NOUS CONTACTER
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/10 text-center text-gray-500 text-sm">
+        <div class="mb-4 font-brawl text-xl text-white">ITONNA</div>
+        <p>© 2024 Itonna Boosting Service. Non affilié à Supercell.</p>
+        <p class="mt-2">Développé avec passion pour la communauté Null's Brawl.</p>
+    </footer>
+
+</body>
+</html>

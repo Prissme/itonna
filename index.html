@@ -167,10 +167,11 @@
         // --- DONNÉES DU CLASSEMENT ---
         const db = {
             allowed: [
-                { name: "Prissme", time: "05:16.00", date: "04/05/2026", proof: "https://youtu.be/vjMWxRB9yOY?si=LXGzXsWk6PRWAzGU" }
+                { name: "Prissme", time: "03:48.00", date: "04/05/2026", proof: "https://youtu.be/vjMWxRB9yOY?si=LXGzXsWk6PRWAzGU" }
             ],
             disallowed: [
-                { name: "Prissme", time: "03:48.00", date: "04/05/2026", proof: "https://youtu.be/3EbWp6dwKtA?si=QtmfTchaZYtl0Bz2" }
+                { name: "Prissme", time: "05:16.00", date: "04/05/2026", proof: "https://youtu.be/3EbWp6dwKtA?si=QtmfTchaZYtl0Bz2" },
+                { name: "Pizza", time: "07:00.00", date: "04/05/2026", proof: "#" }
             ]
         };
 
@@ -194,7 +195,7 @@
             const list = document.getElementById('leaderboard');
             const players = db[currentTab];
             
-            // Tri par temps
+            // Tri par temps (Chrono ascendant)
             const sorted = [...players].sort((a, b) => a.time.localeCompare(b.time));
             
             // Mise à jour du meilleur temps affiché

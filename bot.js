@@ -3,7 +3,6 @@ const { Client, GatewayIntentBits, EmbedBuilder, SlashCommandBuilder, REST, Rout
 // --- CONFIGURATION ---
 // Sur Koyeb, crée une variable d'environnement nommée : DISCORD_TOKEN
 const TOKEN = process.env.DISCORD_TOKEN;
-const CLIENT_ID = process.env.CLIENT_ID; 
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -61,10 +60,14 @@ client.once('ready', async () => {
 
     const rest = new REST({ version: '10' }).setToken(TOKEN);
     try {
-        await rest.put(Routes.applicationCommands(client.user.id), { body: commands });
-        console.log('Commandes slash enregistrées.');
+        console.log('Début du rafraîchissement des commandes slash...');
+        await rest.put(
+            Routes.applicationCommands(client.user.id),
+            { body: commands },
+        );
+        console.log('Commandes slash enregistrées avec succès !');
     } catch (error) {
-        console.error(error);
+        console.error('Erreur lors de l’enregistrement des commandes :', error);
     }
 });
 
@@ -100,4 +103,11 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.login(TOKEN);
+// Vérification du token avant login pour éviter un crash inutile
+if (TOKEN) {
+    client.login(TOKEN).catch(err => {
+        console.error("Impossible de se connecter à Discord. Vérifie ton TOKEN sur Koyeb.", err);
+    });
+} else {
+    console.error("ERREUR : La variable d'environnement DISCORD_TOKEN n'est pas définie.");
+}

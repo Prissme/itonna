@@ -23,6 +23,8 @@ function createLeaderboardEmbed() {
         .setDescription('Tableau officiel des records mondiaux')
         .setColor(0xcd7f32)
         .setThumbnail('https://media.discordapp.net/attachments/1434252768633290952/1500845879475703919/9k.png')
+        // Ajout de ton image violette en bannière
+        .setImage('https://media.discordapp.net/attachments/1311029253457580045/1336473634045952131/image_98d720.jpg?ex=67a3ed1e&is=67a29b9e&hm=c1767e415b3e75e11f77d33b86027a42129c5468846c988975975005898d2495&=&format=webp')
         .setTimestamp()
         .setFooter({ text: 'Propulsé par PRISSME TV', iconURL: 'https://media.discordapp.net/attachments/1434252768633290952/1500845879475703919/9k.png' });
 
@@ -60,14 +62,14 @@ client.once('ready', async () => {
 
     const rest = new REST({ version: '10' }).setToken(TOKEN);
     try {
-        console.log('Début du rafraîchissement des commandes slash...');
+        console.log('Rafraîchissement des commandes...');
         await rest.put(
             Routes.applicationCommands(client.user.id),
             { body: commands },
         );
-        console.log('Commandes slash enregistrées avec succès !');
+        console.log('Commandes enregistrées !');
     } catch (error) {
-        console.error('Erreur lors de l’enregistrement des commandes :', error);
+        console.error('Erreur commandes :', error);
     }
 });
 
@@ -82,12 +84,11 @@ client.on('interactionCreate', async interaction => {
         const name = interaction.options.getString('joueur');
         const time = interaction.options.getString('temps');
         const proof = interaction.options.getString('lien');
-        const date = new Date().toLocaleDateString('fr-FR');
-
-        leaderboardData = leaderboardData.filter(p => p.name.toLowerCase() !== name.toLowerCase());
-        leaderboardData.push({ name, time, proof, date });
         
-        await interaction.reply(`✅ Record de **${name}** ajouté avec succès !`);
+        leaderboardData = leaderboardData.filter(p => p.name.toLowerCase() !== name.toLowerCase());
+        leaderboardData.push({ name, time, proof, date: new Date().toLocaleDateString('fr-FR') });
+        
+        await interaction.reply(`✅ Record de **${name}** ajouté !`);
     }
 
     if (interaction.commandName === 'remove-record') {
@@ -96,18 +97,15 @@ client.on('interactionCreate', async interaction => {
         leaderboardData = leaderboardData.filter(p => p.name.toLowerCase() !== name.toLowerCase());
         
         if (leaderboardData.length < initialLength) {
-            await interaction.reply(`🗑️ **${name}** a été retiré du classement.`);
+            await interaction.reply(`🗑️ **${name}** retiré.`);
         } else {
-            await interaction.reply(`❌ Joueur **${name}** introuvable.`);
+            await interaction.reply(`❌ Joueur introuvable.`);
         }
     }
 });
 
-// Vérification du token avant login pour éviter un crash inutile
 if (TOKEN) {
-    client.login(TOKEN).catch(err => {
-        console.error("Impossible de se connecter à Discord. Vérifie ton TOKEN sur Koyeb.", err);
-    });
+    client.login(TOKEN).catch(err => console.error("Erreur login :", err));
 } else {
-    console.error("ERREUR : La variable d'environnement DISCORD_TOKEN n'est pas définie.");
+    console.error("Variable DISCORD_TOKEN manquante.");
 }

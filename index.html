@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard | Bronze2% NB</title>
+    <title>Ranked NB Speedrun</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Importation de Lilita One -->
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
@@ -37,17 +37,6 @@
             border: 1px solid rgba(205, 127, 50, 0.2);
         }
 
-        .tab-btn {
-            transition: all 0.3s ease;
-            border-bottom: 4px solid transparent;
-        }
-
-        .tab-btn.active {
-            border-bottom-color: var(--bronze);
-            color: white;
-            background: rgba(205, 127, 50, 0.2);
-        }
-
         .rank-1 {
             background: linear-gradient(90deg, rgba(255, 215, 0, 0.1) 0%, transparent 100%);
             border-left: 6px solid var(--gold);
@@ -62,16 +51,6 @@
             text-transform: uppercase;
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
             animation: shine 2s infinite linear, pulse 1.5s infinite;
-        }
-
-        .corner-logo {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 80px;
-            height: auto;
-            z-index: 50;
-            filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
         }
 
         @keyframes shine {
@@ -91,33 +70,24 @@
         }
 
         .neon-text-pink { color: #ff00ea; transition: text-shadow 0.3s; }
+
+        .footer-logo {
+            width: 40px;
+            height: auto;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+        }
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex flex-col items-center">
-
-    <!-- Logo dans le coin supérieur -->
-    <img src="https://media.discordapp.net/attachments/1434252768633290952/1500845879475703919/9k.png?ex=69f9eb26&is=69f899a6&hm=1ed23494bcda58d42d3abadb07dad32d91a2c93857caaca2bde5b82b28203cf0&=&format=webp&quality=lossless" 
-         alt="Logo Corner" 
-         class="corner-logo">
 
     <div class="w-full max-w-3xl">
         <!-- Header -->
         <header class="text-center mb-8">
             <h1 class="text-5xl md:text-6xl mb-2 bronze-text uppercase tracking-wide">
-                Bronze 2%
+                Ranked NB Speedrun
             </h1>
-            <p class="text-slate-300 font-bold tracking-tight uppercase drop-shadow-md">Classement Speedrun • Ranked NB</p>
+            <p class="text-slate-300 font-bold tracking-tight uppercase drop-shadow-md">Tableau des records mondiaux</p>
         </header>
-
-        <!-- Category Tabs -->
-        <div class="flex mb-6 rounded-t-2xl overflow-hidden bronze-card border-b-0">
-            <button onclick="switchTab('allowed')" id="btn-allowed" class="tab-btn active flex-1 py-4 text-sm tracking-wider uppercase">
-                Rank Boost Allowed
-            </button>
-            <button onclick="switchTab('disallowed')" id="btn-disallowed" class="tab-btn flex-1 py-4 text-sm tracking-wider uppercase">
-                Rank Boost Disallowed
-            </button>
-        </div>
 
         <!-- Stats Quick Look -->
         <div class="grid grid-cols-2 gap-4 mb-6 text-center">
@@ -127,12 +97,12 @@
             </div>
             <div class="bronze-card p-4 rounded-2xl">
                 <p class="text-[10px] text-slate-400 uppercase mb-1">Catégorie</p>
-                <p id="currentCatLabel" class="text-sm text-white uppercase tracking-tighter">ALLOWED</p>
+                <p class="text-sm text-white uppercase tracking-tighter">Bronze 2%</p>
             </div>
         </div>
 
         <!-- Leaderboard Table -->
-        <div class="bronze-card rounded-b-3xl overflow-hidden shadow-2xl mb-12">
+        <div class="bronze-card rounded-3xl overflow-hidden shadow-2xl mb-12">
             <table class="w-full text-left">
                 <thead class="bg-white/5 border-b border-slate-700 text-[11px] uppercase tracking-widest text-slate-400">
                     <tr>
@@ -152,9 +122,15 @@
         <footer class="mt-auto py-10 flex flex-col items-center gap-6">
             <div class="prissme-footer text-center group cursor-default">
                 <p class="text-[10px] text-slate-400 font-bold mb-1 uppercase tracking-[0.3em]">Propulsé par</p>
-                <div class="flex items-center gap-2 text-3xl">
-                    <span class="text-white">PRISSME</span>
-                    <span class="neon-text-pink">TV</span>
+                <div class="flex items-center justify-center gap-4 text-3xl">
+                    <!-- Image maintenant à côté du nom -->
+                    <img src="https://media.discordapp.net/attachments/1434252768633290952/1500845879475703919/9k.png?ex=69f9eb26&is=69f899a6&hm=1ed23494bcda58d42d3abadb07dad32d91a2c93857caaca2bde5b82b28203cf0&=&format=webp&quality=lossless" 
+                         alt="Logo Footer" 
+                         class="footer-logo">
+                    <div class="flex items-center gap-2">
+                        <span class="text-white">PRISSME</span>
+                        <span class="neon-text-pink">TV</span>
+                    </div>
                 </div>
             </div>
             <div class="text-[10px] text-slate-400 text-center tracking-widest uppercase bg-black/40 px-6 py-2 rounded-full">
@@ -165,39 +141,18 @@
 
     <script>
         // --- DONNÉES DU CLASSEMENT ---
-        const db = {
-            allowed: [
-                { name: "Prissme", time: "03:48.00", date: "04/05/2026", proof: "https://youtu.be/vjMWxRB9yOY?si=LXGzXsWk6PRWAzGU" }
-            ],
-            disallowed: [
-                { name: "Naell", time: "04:31.00", date: "04/05/2026", proof: "https://youtu.be/n3uWxAc_6nU?si=wa1VXIMiFmiVvcQR" },
-                { name: "Prissme", time: "05:16.00", date: "04/05/2026", proof: "https://youtu.be/3EbWp6dwKtA?si=QtmfTchaZYtl0Bz2" },
-                { name: "Pizza", time: "07:00.00", date: "04/05/2026", proof: "#" }
-            ]
-        };
-
-        let currentTab = 'allowed';
-
-        function switchTab(tabId) {
-            currentTab = tabId;
-            
-            // Mise à jour UI des boutons
-            document.getElementById('btn-allowed').classList.remove('active');
-            document.getElementById('btn-disallowed').classList.remove('active');
-            document.getElementById('btn-' + tabId).classList.add('active');
-            
-            // Mise à jour du label
-            document.getElementById('currentCatLabel').innerText = tabId === 'allowed' ? 'ALLOWED' : 'DISALLOWED';
-            
-            render();
-        }
+        const leaderboardData = [
+            { name: "Naell", time: "04:31.00", date: "04/05/2026", proof: "https://youtu.be/n3uWxAc_6nU?si=wa1VXIMiFmiVvcQR" },
+            { name: "Prissme", time: "05:16.00", date: "04/05/2026", proof: "https://youtu.be/3EbWp6dwKtA?si=QtmfTchaZYtl0Bz2" },
+            { name: "HutaoMarryMe", time: "05:51.00", date: "04/05/2026", proof: "https://youtu.be/_ySJjz6oMSo?si=Tovlgfb5dmjcUh0D" },
+            { name: "Pizza", time: "07:00.00", date: "04/05/2026", proof: "#" }
+        ];
 
         function render() {
             const list = document.getElementById('leaderboard');
-            const players = db[currentTab];
             
             // Tri par temps (Chrono ascendant)
-            const sorted = [...players].sort((a, b) => a.time.localeCompare(b.time));
+            const sorted = [...leaderboardData].sort((a, b) => a.time.localeCompare(b.time));
             
             // Mise à jour du meilleur temps affiché
             document.getElementById('topTime').innerText = sorted.length > 0 ? sorted[0].time : "--:--.--";
